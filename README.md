@@ -5,3 +5,4 @@ Dockerfile for cluster-db
 ``` bash
 docker run -d -p 5000:5000 fjctp/cluster-db
 ```
+See [github](https://github.com/fjctp/cluster-db) for REST APIs
