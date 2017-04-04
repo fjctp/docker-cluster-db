@@ -1,10 +1,11 @@
 FROM mhart/alpine-node:7
 
-COPY cluster-health-monitor/package.json /package.json
-COPY cluster-health-monitor/server.js /server.js
-COPY cluster-health-monitor/cluster_nodes.js /cluster_nodes.js
-RUN npm install
+RUN apk add --no-cache git && \
+    git clone https://github.com/fjctp/cluster-db.git && \
+    cd cluster-db && \
+    npm install
 
 EXPOSE 5000
+WORKDIR /cluster-db
 
-CMD ["node", "/server.js"] 
+CMD ["node", "server.js"] 
